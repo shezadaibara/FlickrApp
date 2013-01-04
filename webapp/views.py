@@ -4,7 +4,6 @@ from django.template.context import RequestContext
 import flickrapi
 
 from FlickrApp.settings import FLICKR_API_KEY, DEFAULT_LIMIT
-from pprint import pprint
 
 
 def home(request):
