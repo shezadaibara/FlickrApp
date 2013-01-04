@@ -167,3 +167,5 @@ LOGGING = {
 # flick api public key
 
 FLICKR_API_KEY = '329241a54dfbbb15999308dc326f598e'
+FLICKR_IMAGE_URL = 'http://www.flickr.com/photos'
+DEFAULT_LIMIT = 25

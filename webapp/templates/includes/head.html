@@ -12,4 +12,35 @@
 			type="text/css" 
 			media="screen" />
 	{% endblock stylesheet%}
+	{% block javascript_includes %}
+		<script src="//code.jquery.com/jquery-1.8.3.min.js"></script>
+	{% endblock javascript_includes %}
+	{% block javascript %}
+		<script >
+			 $(document).ready(function(){
+				
+				 $("p").click(function(){
+					    $(this).hide();
+					  });
+				 $('#next_button').click(function(){
+					    var $page = $('#page').val();
+					    $('#page').val(parseInt($page) + 1);
+					    $('form').submit();
+				  });
+				 
+				 $('#prev_button').click(function(){
+					    var $page = $('#page').val();
+					    var $new_page = parseInt($page) - 1
+					    if ($new_page <= 1){
+					    	$('#page').val(1);
+					    }else{
+					    	$('#page').val($new_page);
+					    }
+					   $('form').submit();
+				  });
+				 
+			}); 
+		</script>
+	{% endblock javascript %}
+	
 </head>

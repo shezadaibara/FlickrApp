@@ -10,17 +10,57 @@
 			{% csrf_token %}
 			<input 
 				id='search_text' type="text" 
-				name='tags'/>
+				name='tags' value={% if tags %} '{{tags}}' {% else %} '' {% endif%}/>
 			<input 
 				id='search_button' class='center' 
 				type="submit" name="search" 
 				value="Search"/>
-		</form>
+			<input type=hidden name=page 
+				id='page' value={{ page }}>
+		
 		</span>
-	</div>
-	<div id='image_container'>
+		</form>
+		{% if photos %}
+		<div id='pagination'>
+			<input 
+				id='prev_button' class='center' 
+				type="submit" name="prev" 
+				value="Prev"/>
+			<input 
+				id='next_button' class='center' 
+				type="submit" name="next" 
+				value="Next"/>
+		</div>
+		{% endif %}
+		
+		
+		
 		
 	</div>
-	
-	
+	<!-- <div id='container'>
+		{% for place, images  in photos.items %}
+			{% for image in  images%}
+				  <pre>{{image}}</pre>
+				<div class='masonryImage'>
+					<img src={{image.image_url}} alt=''>
+				</div>
+			{% endfor %}
+		{% endfor %}
+	</div>
+	 -->
+	 
+	 <div id='container'>
+	 	<ul id="myContent">
+	 	  	{% for place, images  in photos.items %}
+				{% for image in  images%}
+					<li class='masonryImage'>
+						<a href='{{image.web_url}}' title="{{image.title}}" target='_blank'>
+							<img src={{image.image_url}} alt=''>
+						</a>
+					</li>
+				{% endfor %}
+			{% endfor %}
+	 	</ul>
+	 </div>
+	 
 {% endblock %}
