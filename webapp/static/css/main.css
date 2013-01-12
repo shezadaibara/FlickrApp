@@ -63,6 +63,7 @@ body > #ccontainer { height: auto; min-height: 100%; }
 #content{
 	width: 85%;
 	vertical-align: middle;
+	clear: both;
 }
 
 #content-image-div,
@@ -109,10 +110,12 @@ body > #ccontainer { height: auto; min-height: 100%; }
     width: 1200px;
     margin: 0 auto;
     border_top: 1px grove black;
+    clear: both;
     
 }
  
 #myContent {
+	clear: both;
     -moz-column-count: 6;
     -moz-column-gap: 0px;
     -webkit-column-count: 6;
@@ -120,6 +123,7 @@ body > #ccontainer { height: auto; min-height: 100%; }
     column-count: 6;
     column-gap: 0px;
     width: 1200px;
+    
 }
  
 #myContent li {
@@ -142,6 +146,7 @@ only screen and (max-device-width : 1199px){
         column-count: 5;
         column-gap: 0px;
         width: 1000px;
+        clear: both;
     }
      
     #container {
@@ -160,6 +165,7 @@ only screen and (max-device-width : 999px){
         column-count: 4;
         column-gap: 0px;
         width: 800px;
+        clear: both;
     }
      
     #container {
@@ -177,6 +183,7 @@ only screen and (max-device-width : 799px){
         column-count: 34;
         column-gap: 0px;
         width: 600px;
+        clear: both;
     }
      
     #container {
@@ -194,6 +201,7 @@ only screen and (max-device-width : 599px){
         column-count: 2;
         column-gap: 0px;
         width: 500px;
+        clear: both;
     }
      
     #container {

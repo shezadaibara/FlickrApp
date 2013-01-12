@@ -33,11 +33,26 @@
 					    var $new_page = parseInt($page) - 1
 					    if ($new_page <= 1){
 					    	$('#page').val(1);
+					    	$('#page_num').val(1);
 					    }else{
 					    	$('#page').val($new_page);
+					    	$('#page_num').val($new_page);
 					    }
 					   $('form').submit();
 				  });
+				 
+				 $("input").keypress(function(event) {
+					    if (event.which == 13) {
+					        event.preventDefault();
+					        $("form").submit();
+					    }
+					});
+				 
+				 $('.pagelimit').change(function() {
+					 var limit = $(this).val()
+					  $('#limit').val(limit);
+					  $('form').submit();
+				 });
 				 
 			}); 
 		</script>

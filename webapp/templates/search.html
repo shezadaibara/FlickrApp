@@ -15,21 +15,33 @@
 				id='search_button' class='center' 
 				type="submit" name="search" 
 				value="Search"/>
-			<input type=hidden name=page 
+			<input type=hidden name='page' 
 				id='page' value={{ page }}>
+			<input type=hidden name='limit' 
+				id='limit' value={{ limit }}>
 		
 		</span>
 		</form>
 		{% if photos %}
-		<div id='pagination'>
+		<div>
+		<div id='pagination' class='fleft'>
 			<input 
 				id='prev_button' class='center' 
 				type="submit" name="prev" 
 				value="Prev"/>
+			<span id='page_num'>{{page}}</span>
 			<input 
 				id='next_button' class='center' 
 				type="submit" name="next" 
 				value="Next"/>
+		</div>
+		<div id='limit' class='fright'>
+			<select class="pagelimit">
+    			<option value="25" selected="selected">25</option>
+    			<option value="50">50</option>
+    			<option value="75">75</option>
+  			</select>
+		</div>
 		</div>
 		{% endif %}
 		
