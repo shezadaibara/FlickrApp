@@ -6,8 +6,7 @@
 		<div class='fleft'>
 			<img src='{{STATIC_URL}}images/rsz_flickr_logo1.jpg'>
 		</div>
-		<form method='POST' action='/search'>
-			{% csrf_token %}
+		<form method='GET' action='/search'>
 			<input 
 				id='search_text' type="text" 
 				name='tags' value={% if tags %} '{{tags}}' {% else %} '' {% endif%}/>
@@ -22,6 +21,11 @@
 		
 		</span>
 		</form>
+		{% if errors%}
+		<div>
+			
+		</div>
+		{% endif %}
 		{% if photos %}
 		<div>
 		<div id='pagination' class='fleft'>
@@ -43,6 +47,7 @@
   			</select>
 		</div>
 		</div>
+		
 		{% endif %}
 		
 		

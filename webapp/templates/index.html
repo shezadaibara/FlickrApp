@@ -6,8 +6,7 @@
 </div>
 <div class='center' id='content-form-div'>
 	
-	<form method='POST' action='/search'>
-		{% csrf_token %}
+	<form method='GET' action='/search'>
 		<input 
 			id='search_text' type="text" 
 			name='tags'/>
