@@ -12,6 +12,7 @@ def home(request):
 
 
 def search(request):
+    
     try:
         tags = request.GET.get('tags')
         page = request.GET.get('page', 1)
