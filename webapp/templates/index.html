@@ -6,14 +6,13 @@
 </div>
 <div class='center' id='content-form-div'>
 	
-	<form method='POST' action='/search'>
-		{% csrf_token %}
+	<form method='GET' action='/search'>
 		<input 
 			id='search_text' type="text" 
 			name='tags'/>
 		<input 
 			id='search_button' class='center fright' 
-			type="submit" name="search" 
+			type="submit" name="search"
 			value="Search"/>
 	</form>
 </div>

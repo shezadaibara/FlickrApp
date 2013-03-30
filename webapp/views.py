@@ -12,10 +12,11 @@ def home(request):
 
 
 def search(request):
+    
     try:
-        tags = request.POST.get('tags')
-        page = request.POST.get('page', 1)
-        limit = request.POST.get('limit', DEFAULT_LIMIT)
+        tags = request.GET.get('tags')
+        page = request.GET.get('page', 1)
+        limit = request.GET.get('limit', DEFAULT_LIMIT)
         content = {'success': True,
                    'tags': tags,
                    'page': page,
