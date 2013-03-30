@@ -18,7 +18,6 @@ def search(request):
         page = request.GET.get('page', 1)
         limit = request.GET.get('limit', DEFAULT_LIMIT)
         content = {'success': True,
-                   'tags': tags,
                    'page': page,
                    'limit': limit}
         flickr = flickrapi.FlickrAPI(FLICKR_API_KEY)
@@ -39,23 +38,27 @@ def search(request):
                                         per_page=limit,
                                         page=page,
                                         )
-                
                 if photos_xml.get('stat') == 'ok':
                     photos = list(photos_xml[0])
                     for photo in photos:
                         photo = dict(photo.items())
                         photo['image_url'], photo['web_url'] = _get_image_url(photo)
                         content['photos'][place.get('woe_id')].append(photo)
+                    if not photos:
+                        raise Exception('Could Not find any images for place ')
                 else:
-                    raise Exception('Could not find any photos')
+                    raise Exception('Sorry, could not send a proper request. Try again later.')
+            
+            if not places:
+                raise Exception('Could not find any place called ')
         else:
-            raise Exception('Could not find any places')
+            raise Exception('Sorry, could not send a proper request. Try again later')
         
     except Exception as e:
         content['success'] = False
-        content['error'] = '{}:{}'.format(type(e), str(e))
-    
-#    pprint(content, open('alice.txt', 'w'))
+        content['error'] = str(e)
+#        print '{}:{}'.format(type(e), str(e))
+        
     return render_to_response('search.html', content,
                               context_instance=RequestContext(request))
         

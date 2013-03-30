@@ -21,10 +21,10 @@
 		
 		</span>
 		</form>
-		{% if errors%}
-		<div>
-			
-		</div>
+		{% if not success %}
+			<div id="error_box">
+				<p>{{error}}<b>{{tags}}</b></p>
+			</div>
 		{% endif %}
 		
 		{% if photos %}
